@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import * as movieService from '../../services/movieService';
 
 const ReviewForm = (props) => {
-  
+  const { movieId, reviewId } = useParams();
   const [formData, setFormData] = useState({
   text: '' ,
   rating:0
 
 });
+
+const navigate = useNavigate()
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -17,7 +20,13 @@ const ReviewForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (movieId && reviewId) {
+        movieService.updateReview(movieId, reviewId, formData);
+        navigate(`/movies/${movieId}`);
+      } else {
         props.handleAddReview(formData);
+      }
+        
     
     setFormData({
         text: '' ,
@@ -26,7 +35,14 @@ const ReviewForm = (props) => {
       });
   };
 
-
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const movieData = await movieService.show(movieId);
+      // Find comment in fetched movie data
+      setFormData(movieData.reviews.find((review) => review._id === reviewId));
+    };
+    if (movieId && reviewId) fetchMovie();
+  }, [movieId, reviewId]);
   
   return (
     <form onSubmit={handleSubmit}>

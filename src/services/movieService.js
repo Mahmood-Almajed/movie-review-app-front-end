@@ -117,6 +117,22 @@ const index = async () => {
       console.log(error);
     }
   }
+
+  const updateReview = async (movieId, reviewId, reviewFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${movieId}/reviews/${reviewId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reviewFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
   export {
     index,
@@ -125,6 +141,7 @@ const index = async () => {
     createReview,
     deleteMovie,
     deleteReview,
-    update
+    update,
+    updateReview,
   };
   

@@ -84,6 +84,7 @@ const MovieDetails = (props) => {
       <p>{review.text}</p>
       <p>{review.rating}</p>
       {review.author._id===user._id &&  (<>
+        <Link to={`/movies/${movieId}/reviews/${review._id}/edit`}>Edit</Link>
     <button onClick={()=>handleDeleteReview(movie._id,review._id)}>Delete</button>
     
     </>)}

@@ -11,6 +11,7 @@ import * as movieService from '../src/services/movieService';
 import MoviesList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import MovieForm from './components/MovieForm/MovieForm';
+import ReviewForm from './components/ReviewForm/ReviewForm';
 
 export const AuthedUserContext = createContext(null);
 
@@ -83,6 +84,8 @@ const App = () => {
               <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie} />}/>
 
               <Route path="/movies/:movieId/edit" element={<MovieForm handleUpdateMovvie={handleUpdateMovvie}/>} />
+
+              <Route path="/movies/:movieId/reviews/:reviewId/edit"element={<ReviewForm />}/>
               
                
             </>
