@@ -25,15 +25,32 @@ const index = async () => {
   };
 
 
-  const createReview = async (hootId, commentFormData) => {
+  const create = async (movieFormData) => {
     try {
-      const res = await fetch(`${BASE_URL}/${hootId}/comments`, {
+      const res = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(commentFormData),
+        body: JSON.stringify(movieFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
+  const createReview = async (movieId, reviewFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${movieId}/reviews`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reviewFormData),
       });
       return res.json();
     } catch (error) {
@@ -44,6 +61,7 @@ const index = async () => {
   export {
     index,
     show,
+    create,
     createReview,
   };
   

@@ -35,7 +35,7 @@ const ReviewForm = (props) => {
         onChange={handleChange}
       />
      <label htmlFor="number-input">Rate:</label>
-      <textarea
+      <input 
         required
         type="number"
         name="rating"
@@ -45,9 +45,9 @@ const ReviewForm = (props) => {
       />
 
 
-      <button type="submit">SUBMIT COMMENT</button>
+      <button type="submit">SUBMIT</button>
     </form>
   );
 };
 
-export default CommentForm;
+export default ReviewForm;

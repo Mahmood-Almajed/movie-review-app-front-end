@@ -1,14 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect ,useContext } from 'react';
 import * as movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
 import ReviewForm from '../ReviewForm/ReviewForm';
+import { AuthedUserContext } from '../../App';
 
 const MovieDetails = (props) => {
 
     const { movieId } = useParams();
     console.log('movieId', movieId);///////
-    const [movie, setMovie] = useState(null);
-///////////////////////////////
+    const [movie, setMovie] = useState(null); 
+    const user = useContext(AuthedUserContext);
+
+
+
     useEffect(() => {
         const fetchMovie = async () => {
           const movieData = await movieService.show(movieId);
@@ -22,8 +26,7 @@ const MovieDetails = (props) => {
       console.log('movie state:', movie);
 
       const handleAddReview = async (reviewFormData) => {
-        console.log('reviewFormData', reviewFormData); ////////
-        const newReview = await movieService.createComment(movieId, reviewFormData);
+        const newReview = await movieService.createReview(movieId, reviewFormData);
         setMovie({ ...movie, reviews: [...movie.reviews, newReview] });
       };
       if (!movie) return <main>Loading...</main>;
@@ -42,7 +45,7 @@ const MovieDetails = (props) => {
     <p>{movie.description}</p>
     <section>
       <h2>Reviews</h2>
-      <CommentForm handleAddReview={handleAddReview}/>
+      <ReviewForm handleAddReview={handleAddReview}/>
       {!movie.reviews.length && <p>There are no reviews.</p>}
 
   {movie.reviews.map((review) => (
