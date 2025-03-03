@@ -84,11 +84,30 @@ const index = async () => {
     }
   };
   
+  const deleteReview = async (movieId, reviewsID) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${movieId}/reviews/${reviewsID}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        }
+       
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+
+
+  };
+
   export {
     index,
     show,
     create,
     createReview,
-    deleteMovie
+    deleteMovie,
+    deleteReview
   };
   
