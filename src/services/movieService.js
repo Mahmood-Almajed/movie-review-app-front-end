@@ -26,7 +26,6 @@ const index = async () => {
   
   export {
     index,
-    
     show,
   };
   

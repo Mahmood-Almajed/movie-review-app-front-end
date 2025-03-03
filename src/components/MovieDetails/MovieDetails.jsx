@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-//import * as movieService from '../../services/movieService';
+import * as movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
 
 const MovieDetails = (props) => {

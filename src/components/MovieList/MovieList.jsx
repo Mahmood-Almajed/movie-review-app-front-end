@@ -5,7 +5,7 @@ const MovieList = (props) => {
     <main>
         
         {props.movies.map((movie) => (
-      <Link key={movie._id} to={`/movie/${movie._id}`}>
+      <Link key={movie._id} to={`/movies/${movie._id}`}>
         <article>
           <header>
             <h2>{movie.title}</h2>
