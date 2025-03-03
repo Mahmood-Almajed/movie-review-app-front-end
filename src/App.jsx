@@ -34,6 +34,17 @@ const App = () => {
 
   }
 
+    const handleDeleteMovie =async(movieId)=>{
+    const deletedMovie= await movieService.deleteMovie(movieId)
+    const newMovieList= movies.filter((movie)=>(
+    movie._id!==deletedMovie._id 
+
+  ))
+  setMovies(newMovieList);
+  nevigate('/movies')
+
+
+  }
 
   useEffect(() => {
     const fetchAllMovies = async () => {
@@ -59,9 +70,12 @@ const App = () => {
             <>
               <Route path="/" element={<Dashboard user={user} />} />
               <Route path="/movies" element={<MoviesList movies={movies} />} />
-              <Route path="/movies/:movieId" element={<MovieDetails />} />
+              <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie}/>} />
               <Route path="/movies/new" element={<MovieForm handleAddMovie={handleAddMovie}/>}/>
-
+              <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie} />}
+  
+  
+/>
               
                
             </>

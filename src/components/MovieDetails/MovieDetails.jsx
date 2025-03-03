@@ -3,11 +3,12 @@ import * as movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { AuthedUserContext } from '../../App';
+import {Link} from 'react-router-dom';
 
 const MovieDetails = (props) => {
 
     const { movieId } = useParams();
-    console.log('movieId', movieId);///////
+    console.log('movieId', movieId);
     const [movie, setMovie] = useState(null); 
     const user = useContext(AuthedUserContext);
 
@@ -35,17 +36,27 @@ const MovieDetails = (props) => {
 
         <main>
     <header>
-      <p>{movie.genre.toUpperCase()}</p>
       <h1>{movie.title}</h1>
+      <p>Genre: {movie.genre.toUpperCase()}</p>
       <p>
-        {movie.author.username} released on
-        {new Date(movie.createdAt).toLocaleDateString()}{/*  */}
+        {movie.author.username} posted on {new Date(movie.createdAt).toLocaleDateString()}
+        
       </p>
     </header>
-    <p>{movie.description}</p>
+    <p>Description: {movie.description}</p>
+    {movie.releaseDate ? (
+  <p>Release Date: {movie.releaseDate.split('T')[0]}</p>) : null}
+    {movie.author._id===user._id && (<>
+    <button onClick={()=>props.handleDeleteMovie(movieId)}>Delete</button>
+    
+    </>)}
     <section>
       <h2>Reviews</h2>
+      
       <ReviewForm handleAddReview={handleAddReview}/>
+    
+      
+      
       {!movie.reviews.length && <p>There are no reviews.</p>}
 
   {movie.reviews.map((review) => (
@@ -53,7 +64,7 @@ const MovieDetails = (props) => {
       <header>
         <p>
           {review.author.username} posted on
-          {new Date(review.createdAt).toLocaleDateString()} {/*   */}
+          {new Date(review.createdAt).toLocaleDateString()}  
         </p>
       </header>
       <p>{review.text}</p>

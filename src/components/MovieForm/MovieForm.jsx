@@ -33,6 +33,7 @@ return(
 
         <label htmlFor="genre">Genre:</label>
         <select name="genre" id="genre" value={formData.genre} onChange={handleChange} >
+            <option disabled></option>
             <option value="Action">Action</option>
             <option value="Comedy">Comedy</option>
             <option value="Drama">Drama</option>
