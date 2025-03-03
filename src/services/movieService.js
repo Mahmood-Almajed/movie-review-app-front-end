@@ -83,12 +83,29 @@ const index = async () => {
       console.log(error);
     }
   };
+
+  async function update(movieId, movieFormData) {
+    try {
+      const res = await fetch(`${BASE_URL}/${movieId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movieFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
   export {
     index,
     show,
     create,
     createReview,
-    deleteMovie
+    deleteMovie,
+    update,
   };
   

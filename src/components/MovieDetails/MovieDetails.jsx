@@ -47,6 +47,7 @@ const MovieDetails = (props) => {
     {movie.releaseDate ? (
   <p>Release Date: {movie.releaseDate.split('T')[0]}</p>) : null}
     {movie.author._id===user._id && (<>
+      <Link to={`/movies/${movieId}/edit`}>Edit</Link>
     <button onClick={()=>props.handleDeleteMovie(movieId)}>Delete</button>
     
     </>)}

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import * as movieService from '../../services/movieService';
 
 const ReviewForm = (props) => {
+  
   const [formData, setFormData] = useState({
   text: '' ,
   rating:0
@@ -15,7 +17,8 @@ const ReviewForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddReview(formData);
+        props.handleAddReview(formData);
+    
     setFormData({
         text: '' ,
         rating:0
@@ -23,8 +26,11 @@ const ReviewForm = (props) => {
       });
   };
 
+
+  
   return (
     <form onSubmit={handleSubmit}>
+        
       <label htmlFor="text-input">Your review:</label>
       <textarea
         required

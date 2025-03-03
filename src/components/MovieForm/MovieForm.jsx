@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as movieService from '../../services/movieService';
+import { useParams } from 'react-router-dom';
 
 const MovieForm =(props)=>{
+  const { movieId } = useParams();
 const [formData,setFormData]=useState({
     title:'',
     poster:'',
@@ -15,16 +18,29 @@ const handleChange =(e)=>{
 setFormData({...formData, [e.target.name]:e.target.value})
 
 }
-const handleSubmit =(e)=>{
-e.preventDefault()
-props.handleAddMovie(formData);
+const handleSubmit = (evt) => {
+  evt.preventDefault();
+  if (movieId) {
+      props.handleUpdateMovvie(movieId, formData)
+  
+  } else {
+    props.handleAddMovie(formData);
+  }
+};
 
-}
+useEffect(() => {
+  const fetchMovie = async () => {
+  const movieData = await movieService.show(movieId);
+  setFormData(movieData);
+};
+  if (movieId) fetchMovie();
+}, [movieId]);
 
 
 return(
     <main>
       <form onSubmit={handleSubmit}>
+      <h1>{movieId ? 'Edit Movie' : 'New Movie'}</h1>
         <label htmlFor="title">Title:</label>
         <input type="text" name="title" id="title" value={formData.title} onChange={handleChange} />
 
