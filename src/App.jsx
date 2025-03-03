@@ -45,6 +45,14 @@ const App = () => {
 
 
   }
+  const handleUpdateMovvie = async (movieId, movieFormData) => {
+    console.log('movieId:', movieId, 'movieFormData:', movieFormData);
+
+    const updatedMovie = await movieService.update(movieId, movieFormData);
+
+  setMovies(movies.map((movie) => (movieId === movie._id ? updatedMovie : movie)));
+    nevigate(`/movies/${movieId}`);
+  };
 
   useEffect(() => {
     const fetchAllMovies = async () => {
@@ -72,10 +80,9 @@ const App = () => {
               <Route path="/movies" element={<MoviesList movies={movies} />} />
               <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie}/>} />
               <Route path="/movies/new" element={<MovieForm handleAddMovie={handleAddMovie}/>}/>
-              <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie} />}
-  
-  
-/>
+              <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie} />}/>
+
+              <Route path="/movies/:movieId/edit" element={<MovieForm handleUpdateMovvie={handleUpdateMovvie}/>} />
               
                
             </>
