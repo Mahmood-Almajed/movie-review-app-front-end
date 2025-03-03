@@ -9,6 +9,7 @@ import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
 import * as movieService from '../src/services/movieService';
 import MoviesList from './components/MovieList/MovieList';
+import MovieDetails from './components/MovieDetails/MovieDetails';
 
 export const AuthedUserContext = createContext(null);
 
@@ -47,6 +48,7 @@ const App = () => {
             <>
             <Route path="/" element={<Dashboard user={user} />} />
             <Route path="/movies" element={<MoviesList movies={movies}/> } />
+            <Route path="/movies/:movieId" element={<MovieDetails movies={movies}/>} />
 
             </>
             
