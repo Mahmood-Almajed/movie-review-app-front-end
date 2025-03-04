@@ -7,8 +7,7 @@ const Dashboard = ({}) => {
     <main>
       <h1>Welcome, {user.username}</h1>
       <h3>
-        This is the dashboard page where you, and only you, can see a dashboard
-        of all of your things.
+      Your dashboard is your space to explore, review, and organize your movie journey. Ready to dive in? Start exploring now!
       </h3>
     </main>
   );

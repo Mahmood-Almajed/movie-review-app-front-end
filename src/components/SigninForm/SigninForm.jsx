@@ -23,7 +23,6 @@ const SigninForm = (props) => {
     e.preventDefault();
     try {
       const user = await authService.signin(formData);
-      console.log(user);
       props.setUser(user);
       navigate('/');
     } catch (err) {
@@ -32,39 +31,51 @@ const SigninForm = (props) => {
   };
 
   return (
-    <main>
-      <h1>Log In</h1>
-      <p>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Username:</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="username"
-            value={formData.username}
-            name="username"
-            onChange={handleChange}
-          />
+    <main className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6 col-lg-4">
+          <h1 className="text-center mb-4">Log In</h1>
+          
+          <form onSubmit={handleSubmit} className="card p-4">
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">Username</label>
+              <input 
+                type="text" 
+                className="form-control"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input 
+                type="password" 
+                className="form-control"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+
+            <div className="d-grid gap-2">
+              <button type="submit" className="btn btn-primary">
+                Log In
+              </button>
+              <Link to="/" className="btn btn-secondary">
+                Cancel
+              </Link>
+              <p className='text-center'>{message}</p> 
+
+            </div>
+          </form>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={formData.password}
-            name="password"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <button>Log In</button>
-          <Link to="/">
-            <button>Cancel</button>
-          </Link>
-        </div>
-      </form>
+      </div>
     </main>
   );
 };
