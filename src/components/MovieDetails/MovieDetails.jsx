@@ -95,7 +95,9 @@ const MovieDetails = (props) => {
     <button type="button" class="btn btn-danger" onClick={()=>handleDeleteReview(movie._id,review._id)}>Delete</button>
     
     </>)}
+    <hr />
     </article>
+    
   ))}
     </blockquote>
   </div>

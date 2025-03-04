@@ -34,7 +34,7 @@ const MovieForm = (props) => {
 
   return (
     <>
-      <h1 className="text-center text-primary ">
+      <h1 className="text-center">
         {movieId ? "Edit Movie" : "Add New Movie"}
       </h1>
       <div className="form-div">
