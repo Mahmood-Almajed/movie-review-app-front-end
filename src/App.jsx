@@ -12,12 +12,10 @@ import MoviesList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import MovieForm from './components/MovieForm/MovieForm';
 import ReviewForm from './components/ReviewForm/ReviewForm';
-
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
-
   const [movies, setMovies] = useState([])
   const nevigate=useNavigate();
 
@@ -54,6 +52,8 @@ const App = () => {
   setMovies(movies.map((movie) => (movieId === movie._id ? updatedMovie : movie)));
     nevigate(`/movies/${movieId}`);
   };
+
+
 
   useEffect(() => {
     const fetchAllMovies = async () => {

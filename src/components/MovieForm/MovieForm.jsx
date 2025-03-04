@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import * as movieService from '../../services/movieService';
 import { useParams } from 'react-router-dom';
-
 const MovieForm =(props)=>{
   const { movieId } = useParams();
 const [formData,setFormData]=useState({
