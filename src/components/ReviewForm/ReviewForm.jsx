@@ -42,7 +42,10 @@ const ReviewForm = (props) => {
 
   return (
     <div className="container mt-5" id="Review-input">
-      <h1>Add a New Review:</h1>
+      <h1>        
+        {reviewId ? "Edit review" : "Add New Review"}
+      
+      </h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="text-input">Your review:</label>
@@ -70,11 +73,11 @@ const ReviewForm = (props) => {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          SUBMIT
+        {reviewId ? "Update review" : "Add Review"}
+
+          
         </button>
-        <a href={`/users/${props.userId}/movies`} className="btn btn-secondary ml-2">
-          Go Back
-        </a>
+        
       </form>
     </div>
   );
