@@ -51,10 +51,9 @@ const MovieDetails = (props) => {
     <header>
       <h1>{movie.title}</h1>
       <p>Genre: {movie.genre.toUpperCase()}</p>
-      <p>
-        {movie.author.username} posted on {new Date(movie.createdAt).toLocaleDateString()}
+      
         
-      </p>
+      
     </header>
     <p>Description: {movie.description}</p>
     {movie.releaseDate ? (
