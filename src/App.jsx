@@ -44,7 +44,7 @@ const App = () => {
 
 
   }
-  const handleUpdateMovvie = async (movieId, movieFormData) => {
+  const handleUpdateMovie = async (movieId, movieFormData) => {
     console.log('movieId:', movieId, 'movieFormData:', movieFormData);
 
     const updatedMovie = await movieService.update(movieId, movieFormData);
@@ -83,7 +83,7 @@ const App = () => {
               <Route path="/movies/new" element={<MovieForm handleAddMovie={handleAddMovie}/>}/>
               <Route path="/movies/:movieId" element={<MovieDetails handleDeleteMovie={handleDeleteMovie} />}/>
 
-              <Route path="/movies/:movieId/edit" element={<MovieForm handleUpdateMovvie={handleUpdateMovvie}/>} />
+              <Route path="/movies/:movieId/edit" element={<MovieForm handleUpdateMovie={handleUpdateMovie}/>} />
 
               <Route path="/movies/:movieId/reviews/:reviewId/edit"element={<ReviewForm />}/>
               
