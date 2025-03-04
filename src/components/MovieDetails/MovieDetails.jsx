@@ -47,7 +47,7 @@ const MovieDetails = (props) => {
 
     return (
 
-        <main>
+        <main className='Detail-Container'>
     <header>
       <h1>{movie.title}</h1>
       <p>Genre: {movie.genre.toUpperCase()}</p>
@@ -65,31 +65,48 @@ const MovieDetails = (props) => {
     
     </>)}
     <section>
-      <h2>Reviews</h2>
+      {/*<h2>Reviews</h2>*/}
       
-      <ReviewForm handleAddReview={handleAddReview}/>
+      {/*<ReviewForm handleAddReview={handleAddReview}/>*/}
+      {/*!movie.reviews.length && <p>There are no reviews.</p>*/}
     
-      
-      
-      {!movie.reviews.length && <p>There are no reviews.</p>}
-
-  {movie.reviews.map((review) => (
+      {/*---------------------------*/}
+      <div className="Review-Details">
+      <div class="card">
+  <div class="card-header">
+  Reviews
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    {!movie.reviews.length && <p>There are no reviews.</p>}
+    {movie.reviews.map((review) => (
     <article key={review._id}>
       <header>
         <p>
-          {review.author.username} posted on
+          {review.author.username} posted on {' '}
           {new Date(review.createdAt).toLocaleDateString()}  
         </p>
       </header>
-      <p>{review.text}</p>
-      <p>{review.rating}</p>
+      <p>Review: {review.text}</p>
+      <p>Rating: {review.rating}</p>
       {review.author._id===user._id &&  (<>
-        <Link to={`/movies/${movieId}/reviews/${review._id}/edit`}>Edit</Link>
-    <button onClick={()=>handleDeleteReview(movie._id,review._id)}>Delete</button>
+        <Link to={`/movies/${movieId}/reviews/${review._id}/edit`}>
+        <button type="button" class="btn btn-primary">Edit</button>
+        </Link>
+    <button type="button" class="btn btn-danger" onClick={()=>handleDeleteReview(movie._id,review._id)}>Delete</button>
     
     </>)}
     </article>
   ))}
+    </blockquote>
+  </div>
+</div>
+</div>
+<ReviewForm handleAddReview={handleAddReview}/>
+      {/*---------------------------*/}
+      
+
+  
     </section>
   </main>
 
