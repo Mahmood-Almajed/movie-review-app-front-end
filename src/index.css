@@ -185,6 +185,41 @@
     text-align: center;
     margin-top: 60px;
   }
+  
+  .Detail-Container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  
+  section{
+    
+    margin-top: 50px;
+  }
+
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+
+
+.Review-Details{
+  width: 700px;
+}
+
+#Review-input{
+  display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
   .form-div {
     display: flex;
