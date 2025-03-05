@@ -6,8 +6,7 @@
 
 
 
-**movie watchlist**   is a straightforward CRUD app for managing your personal movie watchlist. Users can add movies with details like title, genre, review, poster (image), watch status (Watched/Watching/To Watch), and rating. They can also edit, update, or delete entries. It’s a simple tool to keep track of movies you’ve watched or plan to watch!
-
+**The Movie Review App**   allows users to create, view, and interact with movie posts and reviews. Users can browse a list of movie posts, view detailed information about each movie along with its reviews, and contribute their own reviews. Additionally, authors have control over their content, with the ability to update or delete their reviews and movie posts. This app provides a seamless and interactive experience for movie enthusiasts to share their opinions and engage with others.
 ## Getting Started
 
  - [Movie-review-app](https://movie-review-app-front-end.vercel.app/).
