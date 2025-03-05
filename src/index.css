@@ -185,16 +185,71 @@
     text-align: center;
     margin-top: 60px;
   }
+  #card-details{
+    margin-left: 70px;
+  }
   
   .Detail-Container{
+    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    overflow: hidden;
+    padding: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
   }
   
+  .Detail-Container::before{
+    /*backdrop-filter: blur(3px);*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
+  }
+
+  .movie-content {
+    position: relative;
+    z-index: 2; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px; 
+    width: 100%;
+  }
+
+  .movie-content btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-warning {
+    background-color: #85661d;
+    color: white;
+    width: 100px;
+  }
+  .btn-danger {
+    background-color: #8d2e2e;
+    color: white;
+    width: 100px;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
   
   section{
     
@@ -211,6 +266,7 @@
 
 .Review-Details{
   width: 700px;
+  
 }
 
 #Review-input{
@@ -219,6 +275,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+}
+
+#Review-input h1{
+  color: white;
+  overflow: hidden;
+
 }
 
   .form-div {

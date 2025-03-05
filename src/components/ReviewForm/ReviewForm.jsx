@@ -65,6 +65,8 @@ const ReviewForm = (props) => {
           <input
             required
             type="number"
+            min="0" 
+            max="10"
             name="rating"
             id="number-input"
             className="form-control"
