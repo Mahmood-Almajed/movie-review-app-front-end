@@ -56,7 +56,7 @@ const MovieDetails = (props) => {
 
             <p style={{color: 'white'}}>Description: {movie.description}</p>
             {movie.releaseDate ? (
-               <p>Release Date: {movie.releaseDate.split('T')[0]}</p>) : null}
+               <p style={{color: 'white', margin: '10px'}}>Release Date: {movie.releaseDate.split('T')[0]}</p>) : null}
 
             <div className='buttons'>
                 {movie.author._id===user._id && (<>
