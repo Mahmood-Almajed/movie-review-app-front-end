@@ -10,7 +10,7 @@ const Dashboard = ({}) => {
        <p>Your dashboard is your space to explore ,review, and organize your movie journey </p> 
        <p>Ready to dive in? Start exploring now!</p>
       </h2>
-      <img src="src/logo.png" alt="logo" className='Movie-Logo'/>
+      <img src="/logo.png" alt="logo" className='Movie-Logo'/>
     </main>
   );
 };

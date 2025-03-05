@@ -4,7 +4,7 @@ const Landing = () => {
     <main className="landing">
       <h1>Welcome to Movie Reviews!</h1>
       
-      <img src="src/logo.png" alt="logo" className='Movie-Logo'/>
+      <img src="/logo.png" alt="logo" className='Movie-Logo'/>
       <h3>
         If you sign up for a new account, you will have the ability to sign in
         and see your super secret dashboard.
