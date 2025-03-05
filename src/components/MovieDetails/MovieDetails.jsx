@@ -57,8 +57,8 @@ const MovieDetails = (props) => {
 
             <div className='buttons'>
                 {movie.author._id===user._id && (<>
-                     <Link to={`/movies/${movieId}/edit`} class="btn btn-warning">Edit</Link>
-                     <button onClick={()=>props.handleDeleteMovie(movieId)} class="btn btn-danger">Delete</button>
+                     <Link to={`/movies/${movieId}/edit`} className="btn btn-warning">Edit</Link>
+                     <button onClick={()=>props.handleDeleteMovie(movieId)} className="btn btn-danger">Delete</button>
                 </>)}
             </div>
 
