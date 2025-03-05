@@ -133,12 +133,7 @@
     margin-bottom: 1rem;
   }
 
-  /* 
-  .btn {
-    margin-top: 1rem;
-    width: 80%;
 
-  } */
 
   h1 {
     font-size: 28px;
@@ -261,6 +256,7 @@
   }
   p{
     text-align: center;
+    
   }
 
 

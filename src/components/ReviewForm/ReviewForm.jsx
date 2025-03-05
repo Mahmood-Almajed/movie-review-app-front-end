@@ -42,10 +42,10 @@ const ReviewForm = (props) => {
 
   return (
     <div className="container mt-5" id="Review-input">
-      <h1>        
-        {reviewId ? "Edit review" : "Add New Review"}
+              
+        {reviewId ? (<h1 style={{color:'black'}}>Edit review</h1>) : (<h1>Add New Review</h1>)}
       
-      </h1>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="text-input">Your review:</label>
