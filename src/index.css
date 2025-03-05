@@ -178,7 +178,6 @@
   h1,
   h3 {
     text-align: center;
-    margin-top: 60px;
   }
   #card-details{
     margin-left: 70px;
@@ -292,3 +291,32 @@
     align-items: center;
     width: 500px;
   }
+
+  main.dashboard {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-top: 45px;
+    flex-direction: column;
+}
+
+main.landing {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+
+
+}
+
+button.navbar-toggler {
+
+  border: 2px solid white;
+  background-color: white;
+}
+
