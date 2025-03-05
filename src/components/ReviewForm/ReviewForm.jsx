@@ -34,7 +34,6 @@ const ReviewForm = (props) => {
   useEffect(() => {
     const fetchMovie = async () => {
       const movieData = await movieService.show(movieId);
-      // Find comment in fetched movie data
       setFormData(movieData.reviews.find((review) => review._id === reviewId));
     };
     if (movieId && reviewId) fetchMovie();

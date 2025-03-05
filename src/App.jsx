@@ -6,7 +6,7 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
-import * as authService from '../src/services/authService'; // import the authservice
+import * as authService from '../src/services/authService';
 import * as movieService from '../src/services/movieService';
 import MoviesList from './components/MovieList/MovieList';
 import MovieDetails from './components/MovieDetails/MovieDetails';
@@ -15,7 +15,7 @@ import ReviewForm from './components/ReviewForm/ReviewForm';
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser()); // using the method from authservice
+  const [user, setUser] = useState(authService.getUser()); 
   const [movies, setMovies] = useState([])
   const nevigate=useNavigate();
 
