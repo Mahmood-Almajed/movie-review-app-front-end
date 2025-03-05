@@ -4,12 +4,13 @@ import { useContext } from 'react';
 const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
   return (
-    <main>
+    <main className='dashboard'>
       <h1>Welcome, {user.username}</h1>
-      <p>
-        This is the dashboard page where you, and only you, can see a dashboard
-        of all of your things.
-      </p>
+        <h2>
+       <p>Your dashboard is your space to explore ,review, and organize your movie journey </p> 
+       <p>Ready to dive in? Start exploring now!</p>
+      </h2>
+      <img src="src/logo.png" alt="logo" className='Movie-Logo'/>
     </main>
   );
 };

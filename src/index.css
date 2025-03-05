@@ -1,68 +1,322 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* src/index.css */
+  @import 'bootstrap/dist/css/bootstrap.min.css';
+  @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  * {
+    box-sizing: border-box;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Lexend Exa, sans-serif;
+
+
+    background-image: url("");
+    /* --primary: #00a0df; */
+    --background: #f2f2f8;
+    --card-background: white;
+    --border: rgb(220, 220, 220);
+  }
+
+  #root {
+    height: 100%;
+    background-color: #f0f0f0;
+  }
+
+
+
+  article img {
+    width: 80px;
+  }
+
+  h1,
+  h3 {
+    margin: 7px 0px 14px 0px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  p {
+    margin: 0;
+    /* opacity: .4; */
+    width: 100%;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 28px;
+    color: black;
+  }
+
+  a {
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    max-width: 500px;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: white;
+    padding: 21px 21px 28px 21px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  /* Update these sections in your index.css */
+
+  body {
+    overflow: auto;
+  }
+
+  /* Add these new rules */
+  main.container {
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .card-text {
+    margin: 0.5rem 0;
+    opacity: 0.8;
+    width: 100%;
+  }
+
+  .card-title {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    /* Added margin bottom */
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .btn {
+    margin: 6px;
+  }
+
+  .bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: rgb(15 49 83) !important;
+    color: #f0f0f0
+  }
+
+  .nav-link {
+    color: white;
+  }
+
+  .btn-outline-danger {
+
+    border: 3px solid #8986D3;
+    color: white;
+
+  }
+
+  .nav-s {
+    background-color: #8986D3;
+    border: 3px solid #8986D3;
+
+
+  }
+
+  main>p,
+  h1,
+  h3 {
+    text-align: center;
+  }
+  #card-details{
+    margin-left: 70px;
+  }
+  
+  .Detail-Container{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+  
+  .Detail-Container::before{
+    /*backdrop-filter: blur(3px);*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
+  }
+
+  .movie-content {
+    position: relative;
+    z-index: 2; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px; 
+    width: 100%;
+  }
+
+  .movie-content btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-warning {
+    background-color: #85661d;
+    color: white;
+    width: 100px;
+  }
+  .btn-danger {
+    background-color: #8d2e2e;
+    color: white;
+    width: 100px;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+  
+  section{
+    
+    margin-top: 50px;
+  }
+
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    
+  }
+
+
+.Review-Details{
+  width: 700px;
+  
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+#Review-input{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#Review-input h1{
+  color: white;
+  overflow: hidden;
+
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  .form-div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .Movie-Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }
+
+  main.dashboard {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-top: 45px;
+    flex-direction: column;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+main.landing {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+
+
 }
+
+button.navbar-toggler {
+
+  border: 2px solid white;
+  background-color: white;
+}
+
