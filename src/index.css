@@ -285,3 +285,10 @@
     align-content: center;
     justify-content: center;
   }
+
+  .Movie-Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }

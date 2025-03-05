@@ -9,6 +9,7 @@ const Dashboard = ({}) => {
       <h3>
       Your dashboard is your space to explore, review, and organize your movie journey. Ready to dive in? Start exploring now!
       </h3>
+      <img src="src/logo.png" alt="logo" className='Movie-Logo'/>
     </main>
   );
 };
